@@ -16,8 +16,9 @@
     <script defer src="assets/fontawesome/js/all.min.js"></script>
     <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
     <style>
-        :root { --primary:#1f5f82; --primary-dark:#173f57; --soft:#f4f7f9; --text:#2d3748; --muted:#667085; --border:#e4e7ec; }
+        :root { --primary:#1f5f82; --primary-dark:#173f57; --soft:#f4f7f9; --text:#2d3748; --muted:#667085; --border:#e4e7ec; --success:#15704b; }
         * { box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
         body { margin:0; font-family:Roboto,Arial,sans-serif; color:var(--text); background:#eef2f5; line-height:1.55; }
         a { color:var(--primary); text-decoration:none; }
         a:hover { text-decoration:underline; }
@@ -32,9 +33,13 @@
         .contact { display:flex; flex-wrap:wrap; gap:10px 20px; font-size:14px; }
         .contact a { color:#fff; }
         .contact span { display:inline-flex; align-items:center; gap:7px; }
+        .actions { display:flex; gap:10px; margin-top:20px; flex-wrap:wrap; }
+        .btn-cv { display:inline-flex; align-items:center; gap:7px; padding:10px 14px; border-radius:7px; background:#fff; color:var(--primary-dark)!important; font-weight:500; border:1px solid rgba(255,255,255,.35); }
+        .btn-cv.secondary { background:transparent; color:#fff!important; }
         .content { padding:34px 42px 46px; }
-        .section { margin-bottom:34px; }
+        .section { margin-bottom:38px; }
         .section h2 { margin:0 0 18px; font-size:21px; color:var(--primary-dark); text-transform:uppercase; letter-spacing:.7px; border-bottom:2px solid var(--border); padding-bottom:9px; }
+        .section-lead { margin:-7px 0 20px; color:var(--muted); font-size:14px; }
         .summary { font-size:16px; margin:0; }
         .metrics { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:22px; }
         .metric { padding:18px; background:var(--soft); border:1px solid var(--border); border-radius:10px; text-align:center; }
@@ -49,11 +54,24 @@
         li { margin-bottom:6px; }
         .highlight { background:#f8fbfd; border-left:4px solid var(--primary); padding:16px 18px; margin-top:14px; }
         .highlight strong { color:var(--primary-dark); }
+        .portfolio-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+        .case { border:1px solid var(--border); border-radius:13px; overflow:hidden; background:#fff; box-shadow:0 5px 18px rgba(16,24,40,.05); }
+        .case-top { padding:20px 20px 15px; background:linear-gradient(135deg,#f8fbfd,#eef6fa); border-bottom:1px solid var(--border); }
+        .case-type { display:inline-block; margin-bottom:8px; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.6px; color:var(--primary); }
+        .case h3 { margin:0 0 5px; font-size:19px; color:var(--primary-dark); }
+        .case-subtitle { color:var(--muted); font-size:13px; }
+        .case-body { padding:18px 20px 20px; }
+        .case-row { margin-bottom:13px; }
+        .case-row:last-child { margin-bottom:0; }
+        .case-label { display:block; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; color:var(--muted); margin-bottom:3px; }
+        .case-row p { margin:0; font-size:14px; color:#344054; }
+        .case-result { padding:10px 12px; border-radius:8px; background:#f2f8f5; color:#285b45; }
+        .case-links { display:flex; flex-wrap:wrap; gap:12px; margin-top:15px; font-size:13px; font-weight:500; }
         .project-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
         .project { border:1px solid var(--border); border-radius:10px; padding:18px; background:#fff; }
         .project h3 { margin:0 0 7px; font-size:17px; }
         .project p { margin:0 0 10px; color:#475467; }
-        .tags { display:flex; flex-wrap:wrap; gap:7px; }
+        .tags { display:flex; flex-wrap:wrap; gap:7px; margin-top:10px; }
         .tag { font-size:12px; padding:4px 8px; background:#eef6fa; color:var(--primary-dark); border-radius:20px; }
         .skills-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
         .skill-group { padding:16px; background:var(--soft); border-radius:9px; }
@@ -62,13 +80,10 @@
         .two-col { display:grid; grid-template-columns:1fr 1fr; gap:28px; }
         .item-title { font-weight:700; }
         .muted { color:var(--muted); }
-        .actions { display:flex; gap:10px; margin-top:20px; flex-wrap:wrap; }
-        .btn-cv { display:inline-flex; align-items:center; gap:7px; padding:10px 14px; border-radius:7px; background:#fff; color:var(--primary-dark)!important; font-weight:500; border:1px solid rgba(255,255,255,.35); }
-        .btn-cv.secondary { background:transparent; color:#fff!important; }
         footer { padding:18px 42px; background:#f8fafc; color:var(--muted); text-align:center; font-size:13px; border-top:1px solid var(--border); }
-        @media(max-width:850px){ .hero{grid-template-columns:1fr}.hero-photo{padding-bottom:10px}.hero-content{text-align:center;padding-top:10px}.contact{justify-content:center}.metrics,.skills-grid,.project-grid,.two-col{grid-template-columns:1fr 1fr}.job-header{display:block}.date{margin-top:3px} }
-        @media(max-width:560px){ .cv{margin:0}.content{padding:28px 20px}.hero-content{padding:18px 20px 30px}.hero h1{font-size:29px}.metrics,.skills-grid,.project-grid,.two-col{grid-template-columns:1fr}.contact{display:grid}.hero-photo img{width:135px;height:135px} }
-        @media print { body{background:#fff}.cv{margin:0;box-shadow:none;max-width:none}.actions{display:none}.project,.metric,.skill-group{break-inside:avoid}.section{break-inside:auto} }
+        @media(max-width:850px){ .hero{grid-template-columns:1fr}.hero-photo{padding-bottom:10px}.hero-content{text-align:center;padding-top:10px}.contact{justify-content:center}.metrics,.skills-grid,.portfolio-grid,.project-grid,.two-col{grid-template-columns:1fr 1fr}.job-header{display:block}.date{margin-top:3px} }
+        @media(max-width:560px){ .cv{margin:0}.content{padding:28px 20px}.hero-content{padding:18px 20px 30px}.hero h1{font-size:29px}.metrics,.skills-grid,.portfolio-grid,.project-grid,.two-col{grid-template-columns:1fr}.contact{display:grid}.hero-photo img{width:135px;height:135px} }
+        @media print { body{background:#fff}.cv{margin:0;box-shadow:none;max-width:none}.actions,.case-links{display:none}.case,.project,.metric,.skill-group{break-inside:avoid}.section{break-inside:auto} }
     </style>
 </head>
 <body>
@@ -88,7 +103,8 @@
                 <span><i class="fab fa-github"></i><a href="https://github.com/edwinanto" target="_blank" rel="noopener">GitHub</a></span>
             </div>
             <div class="actions">
-                <a class="btn-cv" href="#" onclick="window.print();return false;"><i class="fas fa-file-pdf"></i> Guardar / imprimir CV</a>
+                <a class="btn-cv" href="#portfolio"><i class="fas fa-code"></i> Ver portafolio</a>
+                <a class="btn-cv secondary" href="#" onclick="window.print();return false;"><i class="fas fa-file-pdf"></i> Guardar / imprimir CV</a>
                 <a class="btn-cv secondary" href="mailto:edwinsoriano8@gmail.com"><i class="fas fa-paper-plane"></i> Contactar</a>
             </div>
         </div>
@@ -108,7 +124,6 @@
 
         <section class="section">
             <h2>Experiencia profesional</h2>
-
             <article class="job">
                 <div class="job-header">
                     <div><h3>Analista de TI</h3><div class="company">Remicsa Drilling - REDRILSA</div></div>
@@ -142,53 +157,92 @@
             </article>
 
             <article class="job">
-                <div class="job-header">
-                    <div><h3>Analista de Sistemas</h3><div class="company">Global Hitss - Proyecto REDRILSA</div></div>
-                    <div class="date">Feb. 2022 - Nov. 2022</div>
-                </div>
+                <div class="job-header"><div><h3>Analista de Sistemas</h3><div class="company">Global Hitss - Proyecto REDRILSA</div></div><div class="date">Feb. 2022 - Nov. 2022</div></div>
                 <p>Soporte TI corporativo, Microsoft 365, sistemas operativos, impresión, mantenimiento, diagnóstico de software y hardware, clonación de equipos e informes técnicos.</p>
             </article>
 
             <article class="job">
-                <div class="job-header">
-                    <div><h3>Soporte de Sistemas</h3><div class="company">Supply Chain Technologies</div></div>
-                    <div class="date">May. 2021 - Feb. 2022</div>
-                </div>
+                <div class="job-header"><div><h3>Soporte de Sistemas</h3><div class="company">Supply Chain Technologies</div></div><div class="date">May. 2021 - Feb. 2022</div></div>
                 <p>Soporte de usuarios, mantenimiento preventivo y correctivo, instalación y configuración de sistemas, impresoras, estaciones de trabajo y gestión de incidencias.</p>
             </article>
 
             <article class="job">
-                <div class="job-header">
-                    <div><h3>Experiencia previa en soporte e infraestructura</h3><div class="company">Inetum / Sedapal · Corporación Sapia / Interbank · Manpower / Sonda · Cosapi Data / Claro · Clínica Maison de Santé</div></div>
-                    <div class="date">2015 - 2021</div>
-                </div>
+                <div class="job-header"><div><h3>Experiencia previa en soporte e infraestructura</h3><div class="company">Inetum / Sedapal · Corporación Sapia / Interbank · Manpower / Sonda · Cosapi Data / Claro · Clínica Maison de Santé</div></div><div class="date">2015 - 2021</div></div>
                 <p>Experiencia progresiva en soporte técnico Nivel II, hardware y software, redes, configuración de equipos, telefonía, mantenimiento, inventario, atención de usuarios, reemplazo de equipos, respaldos y documentación técnica.</p>
             </article>
         </section>
 
-        <section class="section">
-            <h2>Proyectos destacados</h2>
-            <div class="project-grid">
-                <div class="project">
-                    <h3>Plataforma de Reclutamiento REDRILSA</h3>
-                    <p>Plataforma corporativa para gestionar vacantes, aprobaciones, postulaciones, trazabilidad del proceso y preevaluación asistida por IA.</p>
-                    <div class="tags"><span class="tag">Laravel</span><span class="tag">React</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span><span class="tag">Redis</span><span class="tag">IA</span></div>
-                </div>
-                <div class="project">
-                    <h3>Ecapacita</h3>
-                    <p>Renovación de plataforma corporativa de capacitación con gestión de cursos, enrolamiento, evaluaciones, notas, certificados y trazabilidad.</p>
-                    <div class="tags"><span class="tag">Laravel</span><span class="tag">React</span><span class="tag">PostgreSQL</span><span class="tag">Automatización</span></div>
-                </div>
-                <div class="project">
-                    <h3>Portal corporativo y chatbot</h3>
-                    <p>Portal integrado con información corporativa, procesos, formularios, activos TI, comunicaciones internas y chatbot alimentado con conocimiento empresarial.</p>
-                    <div class="tags"><span class="tag">Web</span><span class="tag">IA</span><span class="tag">RAG / conocimiento</span><span class="tag">Integraciones</span></div>
-                </div>
-                <div class="project">
-                    <h3>ClosetFlow</h3>
-                    <p>Proyecto SaaS orientado a tiendas de moda con POS, inventario, variantes, caja, reportes, catálogo público e integraciones de negocio.</p>
-                    <div class="tags"><span class="tag">Laravel</span><span class="tag">React</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span><span class="tag">SaaS</span></div>
-                </div>
+        <section class="section" id="portfolio">
+            <h2>Portafolio técnico · Casos de implementación</h2>
+            <p class="section-lead">Selección de soluciones desarrolladas o implementadas para resolver necesidades reales de operación, gestión de información, automatización y transformación digital.</p>
+            <div class="portfolio-grid">
+                <article class="case">
+                    <div class="case-top"><span class="case-type">Aplicación empresarial + IA</span><h3>Plataforma de Reclutamiento REDRILSA</h3><div class="case-subtitle">Digitalización del proceso de selección y trazabilidad de candidatos</div></div>
+                    <div class="case-body">
+                        <div class="case-row"><span class="case-label">Problema</span><p>El proceso dependía de correo y archivos dispersos, con tareas manuales para gestionar vacantes, postulantes, aprobaciones y seguimiento.</p></div>
+                        <div class="case-row"><span class="case-label">Solución</span><p>Plataforma web centralizada con flujo de creación y aprobación de vacantes, bolsa laboral pública, gestión de postulantes, trazabilidad por etapas, notificaciones y preevaluación asistida por IA.</p></div>
+                        <div class="case-row"><span class="case-label">Mi participación</span><p>Análisis funcional, arquitectura, desarrollo, integración de datos, diseño de flujos, automatizaciones, IA aplicada, despliegue y soporte de la solución.</p></div>
+                        <div class="case-row case-result"><span class="case-label">Resultado</span><p>Proceso centralizado y auditable, con información consolidada y menor dependencia de controles manuales aislados.</p></div>
+                        <div class="tags"><span class="tag">Laravel 13</span><span class="tag">React</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span><span class="tag">Redis</span><span class="tag">IA</span><span class="tag">Automatización</span></div>
+                        <div class="case-links"><a href="https://reclutamiento.redrilsa.com.pe/" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> Bolsa de trabajo</a><a href="https://redrilsa.com.pe/trabaja-con-nosotros/" target="_blank" rel="noopener"><i class="fas fa-globe"></i> Integración web</a></div>
+                    </div>
+                </article>
+
+                <article class="case">
+                    <div class="case-top"><span class="case-type">Aplicación corporativa</span><h3>Ecapacita · Nueva plataforma</h3><div class="case-subtitle">Gestión centralizada de capacitación corporativa</div></div>
+                    <div class="case-body">
+                        <div class="case-row"><span class="case-label">Problema</span><p>La versión anterior estaba basada en WordPress, con bases de datos aisladas, enrolamiento manual y limitaciones para controlar notas y certificados.</p></div>
+                        <div class="case-row"><span class="case-label">Solución</span><p>Rediseño de la plataforma como aplicación empresarial a medida, integrando usuarios, cursos, enrolamiento, evaluaciones, notas, certificados y trazabilidad.</p></div>
+                        <div class="case-row"><span class="case-label">Mi participación</span><p>Levantamiento de necesidades, definición funcional, desarrollo de la nueva solución, modelo de datos, automatización del enrolamiento e integración con servicios corporativos.</p></div>
+                        <div class="case-row case-result"><span class="case-label">Resultado</span><p>Arquitectura más escalable y preparada para gestionar el ciclo de capacitación con mayor control y trazabilidad.</p></div>
+                        <div class="tags"><span class="tag">Laravel</span><span class="tag">React</span><span class="tag">PostgreSQL</span><span class="tag">Automatización</span><span class="tag">Integraciones</span></div>
+                    </div>
+                </article>
+
+                <article class="case">
+                    <div class="case-top"><span class="case-type">Knowledge Management + IA</span><h3>Portal REDRILSA y chatbot corporativo</h3><div class="case-subtitle">Centralización de servicios, información y conocimiento empresarial</div></div>
+                    <div class="case-body">
+                        <div class="case-row"><span class="case-label">Problema</span><p>Información corporativa distribuida entre archivos, sistemas y áreas, dificultando encontrar procedimientos, formularios, manuales y datos operativos.</p></div>
+                        <div class="case-row"><span class="case-label">Solución</span><p>Portal corporativo renovado con módulos de comunicaciones, gestión de información, agenda, perfil de usuario, activos TI y chatbot con IA orientado a consultar conocimiento interno.</p></div>
+                        <div class="case-row"><span class="case-label">IA aplicada</span><p>Asistente conversacional conectado a una base de conocimiento clasificada por ámbito de acceso, diseñado para responder sobre procesos, manuales, formatos y documentación corporativa.</p></div>
+                        <div class="case-row case-result"><span class="case-label">Resultado</span><p>Base para un punto único de acceso a información y servicios internos, reduciendo la dispersión de conocimiento.</p></div>
+                        <div class="tags"><span class="tag">IA generativa</span><span class="tag">RAG</span><span class="tag">Knowledge Base</span><span class="tag">Web</span><span class="tag">Integraciones</span><span class="tag">Control de acceso</span></div>
+                    </div>
+                </article>
+
+                <article class="case">
+                    <div class="case-top"><span class="case-type">SaaS · Proyecto propio</span><h3>ClosetFlow</h3><div class="case-subtitle">POS y gestión comercial para tiendas de moda</div></div>
+                    <div class="case-body">
+                        <div class="case-row"><span class="case-label">Necesidad</span><p>Crear una solución especializada para pequeños y medianos comercios de ropa y calzado que requieren controlar variantes, inventario, caja y ventas desde una única plataforma.</p></div>
+                        <div class="case-row"><span class="case-label">Solución</span><p>SaaS multiempresa con productos por talla/color/material, POS, caja, códigos, comprobantes, reportes, catálogo público, gestión de planes e integraciones de negocio.</p></div>
+                        <div class="case-row"><span class="case-label">Mi participación</span><p>Definición del producto, arquitectura, backend, frontend, modelo multi-tenant, base de datos, infraestructura, despliegue, QA, seguridad y evolución funcional.</p></div>
+                        <div class="case-row case-result"><span class="case-label">Valor técnico</span><p>Proyecto integral que combina desarrollo de producto, arquitectura SaaS, infraestructura, experiencia de usuario y operación en producción.</p></div>
+                        <div class="tags"><span class="tag">Laravel 13</span><span class="tag">React</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span><span class="tag">Multi-tenant</span><span class="tag">REST API</span></div>
+                        <div class="case-links"><a href="https://closetflow.app/" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> Ver proyecto</a></div>
+                    </div>
+                </article>
+
+                <article class="case">
+                    <div class="case-top"><span class="case-type">Automatización TI</span><h3>Gestión moderna de endpoints</h3><div class="case-subtitle">Active Directory híbrido, Intune y Microsoft Defender</div></div>
+                    <div class="case-body">
+                        <div class="case-row"><span class="case-label">Objetivo</span><p>Modernizar la administración de identidades, dispositivos y seguridad de endpoints corporativos mediante herramientas centralizadas.</p></div>
+                        <div class="case-row"><span class="case-label">Implementación</span><p>Integración de Active Directory híbrido, enrolamiento en Microsoft Intune, políticas de administración de dispositivos y migración de protección de endpoints hacia Microsoft Defender.</p></div>
+                        <div class="case-row"><span class="case-label">Alcance</span><p>174 usuarios corporativos y más de 95 equipos incorporados a la administración centralizada mediante Intune.</p></div>
+                        <div class="case-row case-result"><span class="case-label">Resultado</span><p>Mayor visibilidad de inventario, administración remota y estandarización de controles de seguridad sobre los dispositivos gestionados.</p></div>
+                        <div class="tags"><span class="tag">Microsoft Intune</span><span class="tag">Active Directory</span><span class="tag">Defender</span><span class="tag">Microsoft 365</span><span class="tag">Endpoint Management</span></div>
+                    </div>
+                </article>
+
+                <article class="case">
+                    <div class="case-top"><span class="case-type">Infraestructura + continuidad</span><h3>Modernización de respaldo y conectividad</h3><div class="case-subtitle">Continuidad operativa para infraestructura y proyectos</div></div>
+                    <div class="case-body">
+                        <div class="case-row"><span class="case-label">Alcance</span><p>Administración de respaldos con Veritas Backup Exec para servidores, File Server y bases de datos, además de evaluación de una arquitectura híbrida con Veeam y almacenamiento externo.</p></div>
+                        <div class="case-row"><span class="case-label">Conectividad</span><p>Implementación y soporte de VPN, redes, firewall Fortinet y conectividad para proyectos remotos, incluyendo servicios relacionados con SAP y aplicaciones empresariales.</p></div>
+                        <div class="case-row"><span class="case-label">Mi participación</span><p>Administración operativa, análisis de alternativas, coordinación técnica con proveedores, validación de conectividad y continuidad de servicios.</p></div>
+                        <div class="case-row case-result"><span class="case-label">Resultado</span><p>Continuidad de servicios críticos y evolución hacia una estrategia de infraestructura más centralizada y resiliente.</p></div>
+                        <div class="tags"><span class="tag">Veritas</span><span class="tag">Veeam</span><span class="tag">VMware</span><span class="tag">Fortinet</span><span class="tag">VPN</span><span class="tag">SAP HANA</span></div>
+                    </div>
+                </article>
             </div>
         </section>
 
@@ -197,12 +251,12 @@
             <div class="skills-grid">
                 <div class="skill-group"><h3>Infraestructura</h3><p>Windows Server, Active Directory, Microsoft 365, Microsoft Intune, VMware vSphere, File Server, PRTG.</p></div>
                 <div class="skill-group"><h3>Seguridad y redes</h3><p>Microsoft Defender for Endpoint, Fortinet, VPN, VLAN, switching, TCP/IP, administración remota y políticas de seguridad.</p></div>
-                <div class="skill-group"><h3>Backup y continuidad</h3><p>Veritas Backup Exec, conceptos Veeam, respaldos de servidores, bases de datos y SAP HANA.</p></div>
+                <div class="skill-group"><h3>Backup y continuidad</h3><p>Veritas Backup Exec, Veeam, respaldos de servidores, bases de datos y SAP HANA.</p></div>
                 <div class="skill-group"><h3>Desarrollo web</h3><p>Laravel, PHP, React, JavaScript, HTML5, CSS, APIs REST, Docker, Git y GitHub.</p></div>
-                <div class="skill-group"><h3>IA y automatización</h3><p>Integración de LLM/IA en aplicaciones web, chatbots corporativos, automatización de flujos, notificaciones, procesamiento y clasificación de información.</p></div>
+                <div class="skill-group"><h3>IA y automatización</h3><p>Integración de LLM/IA en aplicaciones web, chatbots corporativos, RAG, bases de conocimiento, automatización de flujos, notificaciones, procesamiento y clasificación de información.</p></div>
                 <div class="skill-group"><h3>Datos y BI</h3><p>Microsoft SQL Server, PostgreSQL, MySQL, Oracle Database, Power BI, consultas SQL e integración de datos.</p></div>
-                <div class="skill-group"><h3>Cloud</h3><p>Microsoft Azure Fundamentals, Oracle Cloud y conceptos de arquitectura híbrida.</p></div>
-                <div class="skill-group"><h3>Gestión y documentación</h3><p>Microsoft Project, Visio, documentación técnica, análisis de requerimientos, mejora de procesos y gestión de incidencias.</p></div>
+                <div class="skill-group"><h3>Cloud</h3><p>Microsoft Azure Fundamentals, Oracle Cloud y arquitectura híbrida.</p></div>
+                <div class="skill-group"><h3>Gestión y documentación</h3><p>Microsoft Project, Visio, análisis de requerimientos, documentación técnica, mejora de procesos, QA y gestión de incidencias.</p></div>
                 <div class="skill-group"><h3>Soporte especializado</h3><p>Diagnóstico de hardware/software, despliegue de equipos, inventario, impresión, estaciones de trabajo y soporte Nivel II.</p></div>
             </div>
         </section>
@@ -223,14 +277,8 @@
         </section>
 
         <section class="section two-col">
-            <div>
-                <h2>Idiomas</h2>
-                <p><strong>Español:</strong> nativo<br><strong>Inglés:</strong> técnico</p>
-            </div>
-            <div>
-                <h2>Información adicional</h2>
-                <p><strong>Licencia de conducir:</strong> A-IIa</p>
-            </div>
+            <div><h2>Idiomas</h2><p><strong>Español:</strong> nativo<br><strong>Inglés:</strong> técnico</p></div>
+            <div><h2>Información adicional</h2><p><strong>Licencia de conducir:</strong> A-IIa</p></div>
         </section>
     </div>
     <footer>Edwin Soriano Gonzales · Analista de Tecnologías de la Información · Lima, Perú</footer>
