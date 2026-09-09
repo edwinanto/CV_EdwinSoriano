@@ -1,580 +1,239 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <title>CV Edwin Soriano</title>
-    
-    <!-- Meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Responsive HTML5 Resume/CV Template for Developers">
-    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
-    <link rel="shortcut icon" href="assets/images/hand_document_list_paper_file_icon_219480.ico">  
-    <!-- Google Font -->
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,300italic,300,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-    <!-- FontAwesome JS-->
-	<script defer src="assets/fontawesome/js/all.min.js"></script>
-    <!-- Global CSS -->
-    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">   
-    <!-- Theme CSS -->  
-    <link id="theme-style" rel="stylesheet" href="assets/css/orbit-6.css">
-</head> 
-
+    <title>Edwin Soriano Gonzales | Analista de Tecnologías de la Información</title>
+    <meta name="description" content="CV y portafolio profesional de Edwin Soriano Gonzales, Analista de Tecnologías de la Información especializado en infraestructura, ciberseguridad, Microsoft 365, Intune, automatización, inteligencia artificial y desarrollo de aplicaciones web empresariales.">
+    <meta name="author" content="Edwin Soriano Gonzales">
+    <meta name="keywords" content="Edwin Soriano, Analista TI, infraestructura, Microsoft Intune, Microsoft 365, Active Directory, VMware, Fortinet, Power BI, Laravel, React, PostgreSQL, inteligencia artificial, automatización, Perú">
+    <meta property="og:title" content="Edwin Soriano Gonzales | Analista TI">
+    <meta property="og:description" content="Infraestructura, seguridad, automatización, IA y desarrollo de soluciones empresariales.">
+    <meta property="og:type" content="website">
+    <link rel="shortcut icon" href="assets/images/hand_document_list_paper_file_icon_219480.ico">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+    <script defer src="assets/fontawesome/js/all.min.js"></script>
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+    <style>
+        :root { --primary:#1f5f82; --primary-dark:#173f57; --soft:#f4f7f9; --text:#2d3748; --muted:#667085; --border:#e4e7ec; }
+        * { box-sizing:border-box; }
+        body { margin:0; font-family:Roboto,Arial,sans-serif; color:var(--text); background:#eef2f5; line-height:1.55; }
+        a { color:var(--primary); text-decoration:none; }
+        a:hover { text-decoration:underline; }
+        .cv { max-width:1180px; margin:32px auto; background:#fff; box-shadow:0 14px 40px rgba(16,24,40,.10); }
+        .hero { display:grid; grid-template-columns:230px 1fr; background:var(--primary-dark); color:#fff; }
+        .hero-photo { padding:34px; display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,.04); }
+        .hero-photo img { width:155px; height:155px; border-radius:50%; object-fit:cover; border:5px solid rgba(255,255,255,.88); }
+        .hero-content { padding:34px 42px; }
+        .hero h1 { margin:0 0 6px; font-size:36px; font-weight:900; }
+        .hero .role { font-size:21px; font-weight:500; margin-bottom:8px; }
+        .hero .specialty { color:#d5e8f3; font-size:15px; margin-bottom:20px; }
+        .contact { display:flex; flex-wrap:wrap; gap:10px 20px; font-size:14px; }
+        .contact a { color:#fff; }
+        .contact span { display:inline-flex; align-items:center; gap:7px; }
+        .content { padding:34px 42px 46px; }
+        .section { margin-bottom:34px; }
+        .section h2 { margin:0 0 18px; font-size:21px; color:var(--primary-dark); text-transform:uppercase; letter-spacing:.7px; border-bottom:2px solid var(--border); padding-bottom:9px; }
+        .summary { font-size:16px; margin:0; }
+        .metrics { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:22px; }
+        .metric { padding:18px; background:var(--soft); border:1px solid var(--border); border-radius:10px; text-align:center; }
+        .metric strong { display:block; font-size:25px; color:var(--primary); }
+        .metric span { color:var(--muted); font-size:13px; }
+        .job { margin-bottom:26px; }
+        .job-header { display:flex; justify-content:space-between; gap:20px; align-items:flex-start; }
+        .job h3 { margin:0; font-size:19px; color:#1d2939; }
+        .company { color:var(--primary); font-weight:500; margin-top:2px; }
+        .date { color:var(--muted); white-space:nowrap; font-size:14px; }
+        ul { margin:10px 0 0; padding-left:21px; }
+        li { margin-bottom:6px; }
+        .highlight { background:#f8fbfd; border-left:4px solid var(--primary); padding:16px 18px; margin-top:14px; }
+        .highlight strong { color:var(--primary-dark); }
+        .project-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+        .project { border:1px solid var(--border); border-radius:10px; padding:18px; background:#fff; }
+        .project h3 { margin:0 0 7px; font-size:17px; }
+        .project p { margin:0 0 10px; color:#475467; }
+        .tags { display:flex; flex-wrap:wrap; gap:7px; }
+        .tag { font-size:12px; padding:4px 8px; background:#eef6fa; color:var(--primary-dark); border-radius:20px; }
+        .skills-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+        .skill-group { padding:16px; background:var(--soft); border-radius:9px; }
+        .skill-group h3 { font-size:15px; margin:0 0 8px; color:var(--primary-dark); }
+        .skill-group p { margin:0; color:#475467; font-size:14px; }
+        .two-col { display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+        .item-title { font-weight:700; }
+        .muted { color:var(--muted); }
+        .actions { display:flex; gap:10px; margin-top:20px; flex-wrap:wrap; }
+        .btn-cv { display:inline-flex; align-items:center; gap:7px; padding:10px 14px; border-radius:7px; background:#fff; color:var(--primary-dark)!important; font-weight:500; border:1px solid rgba(255,255,255,.35); }
+        .btn-cv.secondary { background:transparent; color:#fff!important; }
+        footer { padding:18px 42px; background:#f8fafc; color:var(--muted); text-align:center; font-size:13px; border-top:1px solid var(--border); }
+        @media(max-width:850px){ .hero{grid-template-columns:1fr}.hero-photo{padding-bottom:10px}.hero-content{text-align:center;padding-top:10px}.contact{justify-content:center}.metrics,.skills-grid,.project-grid,.two-col{grid-template-columns:1fr 1fr}.job-header{display:block}.date{margin-top:3px} }
+        @media(max-width:560px){ .cv{margin:0}.content{padding:28px 20px}.hero-content{padding:18px 20px 30px}.hero h1{font-size:29px}.metrics,.skills-grid,.project-grid,.two-col{grid-template-columns:1fr}.contact{display:grid}.hero-photo img{width:135px;height:135px} }
+        @media print { body{background:#fff}.cv{margin:0;box-shadow:none;max-width:none}.actions{display:none}.project,.metric,.skill-group{break-inside:avoid}.section{break-inside:auto} }
+    </style>
+</head>
 <body>
-    <div class="wrapper mt-lg-5">
-        <div class="sidebar-wrapper">
-            <div class="profile-container">
-                <img class="profile" src="assets/images/profile.png" alt="" />
-                <h1 class="name">Edwin Soriano Gonzales</h1>
-                <h3 class="tagline">Bachiller en Ing. de Sistemas</h3>
-            </div><!--//profile-container-->
-            
-            <div class="contact-container container-block">
-                <ul class="list-unstyled contact-list">
-                    <li class="email"><i class="fas fa-envelope"></i><a href="mailto: yourname@email.com">edwinsoriano8@gmail.com</a></li>
-                    <li class="phone"><i class="fas fa-phone"></i><a href="tel:0123 456 789">+51 986096493</a></li>
-                    <li class="website"><i class="fas fa-globe"></i><a href="" target="_blank">portfoliosite.com</a></li>
-                    <li class="linkedin"><i class="fab fa-linkedin-in"></i><a href="https://www.linkedin.com/in/edwin-soriano-gonzales-a29488115/" target="_blank">linkedin.com/in/Esoriano</a></li>
-                    <li class="github"><i class="fab fa-github"></i><a href="https://github.com/edwinanto" target="_blank">github.com/Edwinanto</a></li>
-                    <li class="twitter"><i class="fab fa-instagram"></i><a href="https://www.instagram.com/tec.soriano/" target="_blank">@tec.soriano</a></li>
+<main class="cv">
+    <header class="hero">
+        <div class="hero-photo">
+            <img src="assets/images/profile.png" alt="Fotografía de Edwin Soriano Gonzales">
+        </div>
+        <div class="hero-content">
+            <h1>Edwin Soriano Gonzales</h1>
+            <div class="role">Analista de Tecnologías de la Información</div>
+            <div class="specialty">Infraestructura · Ciberseguridad · Microsoft 365 · Automatización · IA aplicada · Desarrollo de soluciones empresariales</div>
+            <div class="contact">
+                <span><i class="fas fa-envelope"></i><a href="mailto:edwinsoriano8@gmail.com">edwinsoriano8@gmail.com</a></span>
+                <span><i class="fas fa-phone"></i><a href="tel:+51986096493">+51 986 096 493</a></span>
+                <span><i class="fab fa-linkedin-in"></i><a href="https://www.linkedin.com/in/edwin-soriano-gonzales-a29488115/" target="_blank" rel="noopener">LinkedIn</a></span>
+                <span><i class="fab fa-github"></i><a href="https://github.com/edwinanto" target="_blank" rel="noopener">GitHub</a></span>
+            </div>
+            <div class="actions">
+                <a class="btn-cv" href="#" onclick="window.print();return false;"><i class="fas fa-file-pdf"></i> Guardar / imprimir CV</a>
+                <a class="btn-cv secondary" href="mailto:edwinsoriano8@gmail.com"><i class="fas fa-paper-plane"></i> Contactar</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="content">
+        <section class="section">
+            <h2>Perfil profesional</h2>
+            <p class="summary">Profesional de Tecnologías de la Información con más de 10 años de experiencia en soporte, infraestructura y administración de servicios TI, con evolución hacia la gestión de plataformas corporativas, ciberseguridad, automatización y transformación digital. Experiencia en Microsoft 365, Active Directory, Microsoft Intune, Defender for Endpoint, VMware, Fortinet, PRTG, Veritas Backup Exec, bases de datos y Power BI. Complemento el perfil de infraestructura con desarrollo e implementación de aplicaciones web empresariales, integraciones con inteligencia artificial y automatización de procesos para reducir tareas manuales, centralizar información y mejorar la toma de decisiones.</p>
+            <div class="metrics">
+                <div class="metric"><strong>10+ años</strong><span>Experiencia en TI</span></div>
+                <div class="metric"><strong>174</strong><span>Usuarios corporativos gestionados</span></div>
+                <div class="metric"><strong>95+</strong><span>Equipos gestionados con Intune</span></div>
+                <div class="metric"><strong>TI + IA</strong><span>Infraestructura y automatización</span></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Experiencia profesional</h2>
+
+            <article class="job">
+                <div class="job-header">
+                    <div><h3>Analista de TI</h3><div class="company">Remicsa Drilling - REDRILSA</div></div>
+                    <div class="date">Dic. 2024 - Actualidad</div>
+                </div>
+                <ul>
+                    <li>Administración de infraestructura corporativa: Active Directory, File Server, servidores físicos y virtuales, VMware vSphere, Microsoft 365 y servicios asociados.</li>
+                    <li>Gestión de identidades y dispositivos mediante Active Directory híbrido y Microsoft Intune, incluyendo políticas de seguridad, inventario y administración remota.</li>
+                    <li>Administración de Microsoft Defender for Endpoint, Fortinet, PRTG Network Monitor y plataformas de respaldo corporativo.</li>
+                    <li>Administración y soporte de Microsoft SQL Server, MySQL, PostgreSQL y servicios vinculados a aplicaciones empresariales.</li>
+                    <li>Administración y mantenimiento de reportes Power BI, conectividad de proyectos y respaldos relacionados con SAP HANA.</li>
+                    <li>Diseño, desarrollo e implementación de aplicaciones web empresariales para digitalizar procesos internos y centralizar información.</li>
+                    <li>Integración de inteligencia artificial en aplicaciones corporativas mediante asistentes conversacionales, análisis de información, clasificación de datos y apoyo a procesos de negocio.</li>
+                    <li>Diseño e implementación de automatizaciones para notificaciones, flujos de aprobación, procesamiento de información, tareas recurrentes e integración entre sistemas.</li>
+                    <li>Participación en evaluación tecnológica, mejoras de infraestructura, continuidad operativa y proyectos de transformación digital.</li>
                 </ul>
-            </div><!--//contact-container-->
-            <div class="education-container container-block">
-                <h2 class="container-block-title">Education</h2>
-                <div class="item">
-                    <h4 class="degree">Ingeniería de Sistemas</h4>
-                    <h5 class="meta">Universidad Peruana de las Américas</h5>
-	                    <div class="time">2017 - 2021</div>
-                </div><!--//item-->
-                <div class="item">
-                    <h4 class="degree">Conputación e Informática</h4>
-                    <h5 class="meta">ISTP Argentina</h5>
-                    <div class="time">2011 - 2013</div>
-                </div><!--//item-->
-            </div><!--//education-container-->
+                <div class="highlight"><strong>Proyectos y logros:</strong> migración de Kaspersky a Microsoft Defender for Endpoint; implementación de Active Directory híbrido e Intune; administración centralizada de dispositivos móviles; desarrollo de plataformas corporativas de reclutamiento, capacitación y portal interno; integración de IA en soluciones empresariales y automatización de procesos administrativos y operativos.</div>
+            </article>
 
-            <div class="education-container container-block">
-                <h2 class="container-block-title">Cursos</h2>
-                <div class="item">
-                    <a href="https://drive.google.com/file/d/1ew1H9NQdDMFv0GPsfLTcNqkBULzkgH3z/view?usp=sharing"><h4 class="degree">Oracle Database 12C Certification</h4></a>
-                    <h5 class="meta">TECSUP</h5>
-	                    <div class="time">Jun. 2017 - Dic. 2017</div>
-                </div><!--//item-->
-                <div class="item">
-                    <a href="https://drive.google.com/file/d/1ybITYXKapK1M3PCrqxcUSiamQY53wtO8/view?usp=sharing"><h4 class="degree">Microsoft Azure Fundamentals</h4></a>
-                    <h5 class="meta">Entrenamiento certero</h5>
-                    <div class="time">Marzo 2022</div>
+            <article class="job">
+                <div class="job-header">
+                    <div><h3>Asistente de TI</h3><div class="company">Remicsa Drilling - REDRILSA</div></div>
+                    <div class="date">Dic. 2022 - Nov. 2024</div>
                 </div>
-                <div class="item">
-                    <a href="https://drive.google.com/drive/folders/1N4U-uFPBl5iEnnTfXC0L7qFS77ONyUmb?usp=sharing"><h4 class="degree">Especialización en Business Intelligence</h4></a>
-                    <h5 class="meta">Netzun</h5>
-                    <div class="time">Junio 2022</div>
-                </div><!--//item-->
-		<div class="item">
-                    <a href="https://drive.google.com/file/d/13j0y9HoYKdjvEW_BDfJRDGqV5HrUtE2f/view?usp=sharing"><h4 class="degree">Especialización En Inteligencia De Negocios Y Analítica De Datos</h4></a>
-                    <h5 class="meta">Cibertec</h5>
-                    <div class="time">Abr. 2024 - Oct. 2024</div>
-                </div><!--//item-->
-		    
-            </div><!--//education-container-->
-            
-            <div class="languages-container container-block">
-                <h2 class="container-block-title">Idioma</h2>
-                <ul class="list-unstyled interests-list">
-                    <li>Español <span class="lang-desc">(Nativo)</span></li>
-                    <li>Ingles <span class="lang-desc">(Tecnico)</span></li>
+                <ul>
+                    <li>Monitoreo de servidores, redes, cámaras IP y comunicaciones mediante PRTG.</li>
+                    <li>Administración operativa de Active Directory, File Server, VMware vSphere, Fortinet, Kaspersky y Veritas Backup Exec.</li>
+                    <li>Soporte a Power BI, respaldos SAP HANA, Microsoft 365, estaciones de trabajo, inventario y atención de incidencias.</li>
+                    <li>Elaboración de informes técnicos y apoyo en mejoras de infraestructura y servicios TI.</li>
                 </ul>
-            </div><!--//interests-->
-            
-            <div class="interests-container container-block">
-                <h2 class="container-block-title">Intereses</h2>
-                <ul class="list-unstyled interests-list">
-                    <li>Viajar</li>
-                    <li>Futbol</li>
-                    <li>Video juegos</li>
-                </ul>
-            </div><!--//interests-->
-            <div class="interests-container container-block">
-                <h2 class="container-block-title">Licencia</h2>
-                <ul class="list-unstyled interests-list">
-                    <li>Licencia A2A</li>
-                </ul>
-            </div><!--//interests-->
-            
-        </div><!--//sidebar-wrapper-->
-        
-        <div class="main-wrapper">
-            
-            <section class="section summary-section">
-                <h2 class="section-title"><span class="icon-holder"><i class="fas fa-user"></i></span>Perfil Professional</h2>
-                <div class="summary">
-                    <p>Profesional de Tecnologías de la Información con enfoque en la mejora continua, la optimización de procesos y la implementación de soluciones tecnológicas que generan valor para el negocio. 
-						Me caracterizo por mi compromiso, capacidad de análisis, liderazgo, facilidad para trabajar en equipo y adaptación al cambio. Poseo iniciativa para resolver problemas, gestionar proyectos y tomar decisiones oportunas,
-						manteniendo un alto nivel de desempeño en entornos exigentes y orientados al cumplimiento de objetivos.a</p>
-                </div><!--//summary-->
-            </section><!--//section-->
-            
-            <section class="section experiences-section">
-                <h2 class="section-title"><span class="icon-holder"><i class="fas fa-briefcase"></i></span>EXPERIENCIA PROFESIONAL</h2>
-				<div class="item">
-                    <div class="meta">
-                        <div class="upper-row">
-                            <h3 class="job-title">Analista de TI</h3>
-                            <div class="time">Dic. 2024 - Actualidad</div>
-                        </div><!--//upper-row-->
-                        <div class="company">Remicsa Drilling - Redrilsa</div>
-                    </div><!--//meta-->
-                    <div class="details">
-						<li>Administrar plataformas Web corporativo</li>
-						<li>Administración de base de datos Microsoft SQL y MYSQL</li>
-						<li>Administración de Microsoft Intune</li>
-						<li>Monitoreo de servidores / Redes / Cámara IP / Anexos con PRTG Network</li>
-						<li>Administración de Servidores AD / FileServer / Remoto</li>
-						<li>Administración de consola de antivirus </li>
-						<li>Administración de plataforma de Backup Veritas Backup Exec</li>
-						<li>Administración de plataforma de VMware vSphere</li>
-						<li>Administración y mantenimiento de Reportes de Power BI</li>
-						<li>Administración de Fortinet</li>
-						<li>Configuración de Red</li>
-						<li>Backup de SAP Hana</li>
-                        <li>Responder a las solicitudes de incidencias y requerimientos de los usuarios.</li> 
-						<li>Control de inventario.</li>
-                    </div><!--//details-->
-                </div><!--//item-->
-                <div class="item">
-                    <div class="meta">
-                        <div class="upper-row">
-                            <h3 class="job-title">Asistente de TI</h3>
-                            <div class="time">Dic. 2022 - Nov. 2024</div>
-                        </div><!--//upper-row-->
-                        <div class="company">Remicsa Drilling - Redrilsa</div>
-                    </div><!--//meta-->
-                    <div class="details">
-			<li>Monitoreo de servidores / Redes / Cámara IP / Anexos con PRTG Network</li>
-			<li>Administración de Servidores AD / FileServer / Remoto</li>
-			<li>Administración de consola de antivirus Kaspersky</li>
-			<li>Administración de plataforma de Backup Veritas Backup Exec</li>
-			<li>Administración de plataforma de VMware vSphere</li>
-			<li>Administración y mantenimiento de Reportes de Power BI</li>
-			<li>Administración de Fortinet</li>
-			<li>Configuración de Red</li>
-			<li>Backup de SAP Hana</li>
-                        <li>Apoyo en instalación de cámara IP</li>
-                        <li>Responder a las solicitudes de incidencias y requerimientos de los usuarios.</li>
-                        <li>Instalación y configuración del Sistema Operativo</li>
-                        <li>Configuración de Office 365</li>      
-                        <li>Informes técnicos</li>    
-                        <li>Detectar y resolver fallas de software.</li>     
-                        <li>Reparación y Mantenimiento de equipo de cómputo e impresoras.</li>    
-                        <li>Clonación de imágenes de Sistema Operativo.</li> 
-			<li>Control de inventario.</li>
-                    </div><!--//details-->
-                </div><!--//item-->
-                <div class="item">
-                    <div class="meta">
-                        <div class="upper-row">
-                            <h3 class="job-title">Analista de Sistemas</h3>
-                            <div class="time">Febr. 2022 - Nov. 2022</div>
-                        </div><!--//upper-row-->
-                        <div class="company">Global Hitss - Proyecto Redrilsa</div>
-                    </div><!--//meta-->
-                    <div class="details">
-                        <li>Responder a las solicitudes del cliente.</li>
-                        <li>Instalacion y configuración del Sistema Operativo</li>
-                        <li>Configuracion de Office 365</li>    
-                        <li>Instalacion y configuracin de impresora</li>    
-                        <li>Informes tecnicos</li>    
-                        <li>Detectar fallas de software.</li>    
-                        <li>Mantenimiento preventivo y correctivo</li>    
-                        <li>Reparación del equipo de cómputo e impresoras.</li>    
-                        <li>Clonación de imágenes de Sistema Operativo.</li>      
-                    </div><!--//details-->
-                </div><!--//item-->
+            </article>
 
-                <div class="item">
-                    <div class="meta">
-                        <div class="upper-row">
-                            <h3 class="job-title">Soporte de Sistemas</h3>
-                            <div class="time">May. 2021 - Febr 2022</div>
-                        </div><!--//upper-row-->
-                        <div class="company">Supply Chain Technologies</div>
-                    </div><!--//meta-->
-                    <div class="details">
-                        <li>Responder a las solicitudes del cliente.</li>
-                        <li>Instalacion y configuración del Sistema Operativo</li>
-                        <li>Reparacion de laptop y CPU</li>    
-                        <li>Instalacion y configuracin de impresora</li>    
-                        <li>Informes tecnicos</li>    
-                        <li>Detectar fallas de software.</li>    
-                        <li>Mantenimiento preventivo y correctivo</li>     
-                        <li>Clonación de imágenes de Sistema Operativo.</li>      
-                    </div><!--//details-->
-                </div><!--//item-->
-                
-                <div class="item">
-                    <div class="meta">
-                        <div class="upper-row">
-                            <h3 class="job-title">Técnico Volante Nivel II</h3>
-                            <div class="time">Febr. 2020 - Junio 2021</div>
-                        </div><!--//upper-row-->
-                        <div class="company">Proyecto Sedapal - Inetum SA</div>
-                    </div><!--//meta-->
-                    <div class="details">
-                        <li>Responder a las solicitudes del cliente.</li>
-                        <li>Instalación y configuración lector de DNI electrónico.</li>
-                        <li>Configuración de IP, Dominio.</li>    
-                        <li>Instalar y configurar los nuevos sistemas y equipos.</li>    
-                        <li>Reemplazar los equipos averiados.</li>    
-                        <li>Detectar fallas de software.</li>    
-                        <li>Resolución de Problemas Hardware / Software.</li>    
-                        <li>Reparación del equipo de cómputo e impresoras.</li>    
-                        <li>Clonación de imágenes de Sistema Operativo.</li>    
-                        <li>Realizar Backup de Información del usuario.</li>    
-                        <li>Elaborar informes sobre el estado de los equipos.</li>    
-                        <li>Configurar perfiles, correos electrónicos y accesos.</li>    
-                        <li>Realizar guías de remisión para el transporte de equipo.</li>    
-                        <li>Conducir la unidad móvil de la empresa. </li>    
-                    </div><!--//details-->
-                </div><!--//item-->
-                
-                <div class="item">
-                    <div class="meta">
-                        <div class="upper-row">
-                            <h3 class="job-title">Soporte Técnico Nivel II</h3>
-                            <div class="time">Oct. 2018 - Oct. 2019</div>
-                        </div><!--//upper-row-->
-                        <div class="company">Proyecto Interbank - Corporación Sapia SA </div>
-                    </div><!--//meta-->
-                    <div class="details">
-                        <li>Responder a las solicitudes del cliente.</li>
-                        <li>Instalación y configuración de Pinpad.</li>
-                        <li>Instalación y configuración lector de barras.</li>
-                        <li>Instalación y configuración de biométrico.</li>
-                        <li>Instalar y configurar los nuevos sistemas y equipos.</li>
-                        <li>Reemplazar los equipos averiados.</li>
-                        <li>Detectar fallas en el software.</li>
-                        <li>Resolución de Problemas Hardware / Software.</li>
-                        <li>Tramite de Garantías.</li>
-                        <li>Reparación del equipo de cómputo e impresoras.</li>
-                        <li>Clonación de imágenes de Sistema Operativo.</li>
-                        <li>Realizar Backup de Información del usuario.</li>
-                        <li>Elaborar informes sobre el estado de los equipos.</li>
-                        <li>Configurar perfiles, correos electrónicos y accesos.</li>
-                        <li>Realizar guías de remisión para el transporte de equipo.</li>
-                        <li>Conducir la unidad móvil de la empresa.</li>
-                    </div><!--//details-->
-                </div><!--//item-->
-                
-                <div class="item">
-                    <div class="meta">
-                        <div class="upper-row">
-                            <h3 class="job-title">Soporte Técnico Nivel II</h3>
-                            <div class="time">Abr. 2018 - Jul. 2018</div>
-                        </div><!--//upper-row-->
-                        <div class="company">Proyecto Sonda S.A - Manpower Group </div>
-                    </div><!--//meta-->
-                    <div class="details">
-                        <li>Detectar fallas en el Hardware.</li>
-                        <li>Resolución de Problemas Hardware.</li>
-                        <li>Mantenimiento preventivo del equipo de cómputo.</li>
-                        <li>Elaborar informes sobre el estado de los equipos.</li>
-                        <li>Llevar control de los equipos que se realizo mantemiento.</li>
-                        <li>Realizar inventario de los equipos, por sede.</li>
-                        <li>Recepcionar informes de los compañeros, validar y adjuntar.</li>
-                    </div><!--//details-->
-                </div><!--//item-->
+            <article class="job">
+                <div class="job-header">
+                    <div><h3>Analista de Sistemas</h3><div class="company">Global Hitss - Proyecto REDRILSA</div></div>
+                    <div class="date">Feb. 2022 - Nov. 2022</div>
+                </div>
+                <p>Soporte TI corporativo, Microsoft 365, sistemas operativos, impresión, mantenimiento, diagnóstico de software y hardware, clonación de equipos e informes técnicos.</p>
+            </article>
 
-                <div class="item">
-                    <div class="meta">
-                        <div class="upper-row">
-                            <h3 class="job-title">Soporte Técnico Nivel II</h3>
-                            <div class="time">En. 2017 - Febr. 2018)</div>
-                        </div><!--//upper-row-->
-                        <div class="company">Proyecto Interbank - Corporación Sapia SA </div>
-                    </div><!--//meta-->
-                    <div class="details">
-                        <li>Responder a las solicitudes del cliente.</li>
-                        <li>Instalar y configurar los nuevos sistemas y equipos.</li>
-                        <li>Reemplazar los equipos averiados.</li>
-                        <li>Detectar fallas en el software.</li>
-                        <li>Resolución de Problemas Hardware / Software.</li>
-                        <li>Tramite de Garantías.</li>
-                        <li>Reparación del equipo de cómputo e impresoras.</li>
-                        <li>Clonación de imágenes de Sistema Operativo.</li>
-                        <li>Realizar backus de Información del usuario.</li>
-                        <li>Elaborar informes sobre el estado de los equipos.</li>
-                        <li>Configurar perfiles, correos electrónicos y accesos.</li>
-                        <li>Realizar guías de remisión para el transporte de equipo.</li>
-                        <li>Conducir la unidad móvil de la empresa.</li>
-                        <li>configuración de VPN.</li>
-                    </div><!--//details-->
-                </div><!--//item-->
+            <article class="job">
+                <div class="job-header">
+                    <div><h3>Soporte de Sistemas</h3><div class="company">Supply Chain Technologies</div></div>
+                    <div class="date">May. 2021 - Feb. 2022</div>
+                </div>
+                <p>Soporte de usuarios, mantenimiento preventivo y correctivo, instalación y configuración de sistemas, impresoras, estaciones de trabajo y gestión de incidencias.</p>
+            </article>
 
-                <div class="item">
-                    <div class="meta">
-                        <div class="upper-row">
-                            <h3 class="job-title">Soporte Técnico Nivel II</h3>
-                            <div class="time">Jul. 2016 - Dic. 2016</div>
-                        </div><!--//upper-row-->
-                        <div class="company">Proyecto Claro - Cosapi Data</div>
-                    </div><!--//meta-->
-                    <div class="details">
-                        <li>Configurar perfiles, correos electrónicos y accesos.</li>
-                        <li>Traslado de equipos desde el alamcen a sedes / tiendas.</li>
-                        <li>Clonación de imágenes de Sistema Operativo.</li>
-                        <li>Validar punto de red.</li>
-                        <li>Responder a las solicitudes del cliente.</li>
-                        <li>Instalar y configurar los nuevos sistemas y equipos.</li>
-                        <li>Reemplazar los equipos averiados.</li>
-                        <li>Detectar fallas en el software.</li>
-                        <li>Resolución de Problemas Hardware / Software.</li>
-                        <li>Reparación del equipo de cómputo e impresoras.</li>
-                        <li>Configuracion de impresora.</li>
-                        <li>Clonación de imágenes de Sistema Operativo</li>
-                        <li>Realizar Backus de Información del usuario</li>
-                        <li>Elaborar informes sobre el estado de los equipos.</li>
-                        <li>Configurar perfiles, correos electrónicos y accesos.</li>
-                        <li>Realizar guías de remisión para el transporte de equipo.</li>
-                        <li>Conducir la unidad móvil de la empresa.</li>
-                    </div><!--//details-->
-                </div><!--//item-->
-                
-                <div class="item">
-                    <div class="meta">
-                        <div class="upper-row">
-                            <h3 class="job-title">Técnico del Dpto. de Soporte, Redes y Comunicaciones</h3>
-                            <div class="time">Sep. 2015 - Jul. 2016</div>
-                        </div><!--//upper-row-->
-                        <div class="company">CSALUD S.A - Clínica Maison de Sante</div>
-                    </div><!--//meta-->
-                    <div class="details">
-                        <li>Administrar la red telefónica institucional.</li>
-                        <li>Recuperación de datos eliminados o destruidos.</li>
-                        <li>Inventario y control de Hardware.</li>
-                        <li>Instalación de cable de red, Modem, switch.</li>
-                        <li>Instalación de proyector en la sala de reunión.</li>
-                        <li>Reparación de impresora matricial y laser.</li>
-                        <li>Instalar y configurar los nuevos sistemas y equipos.</li>
-                        <li>Reemplazar los equipos averiados.</li>
-                        <li>Detectar fallas en el software.</li>
-                        <li>Resolución de Problemas Hardware / Software.</li>
-                        <li>Reparación del equipo de cómputo.</li>
-                        <li>Clonación de imágenes de Sistema Operativo.</li>
-                        <li>Realizar Backus de Información del usuario.</li>
-                        <li>Elaborar informes sobre el estado de los equipos.</li>
-                        <li>Configurar perfiles, correos electrónicos y accesos.</li>
-                        <li>Llevar a cabo pruebas eléctrica.</li>
-                    </div><!--//details-->
-                </div><!--//item-->
-            </section><!--//section-->
-            
-            <section class="section projects-section">
-                <h2 class="section-title"><span class="icon-holder"><i class="fas fa-archive"></i></span>Soporte Tecnico</h2>
-                <!--<div class="intro">
-                    <p>You can list your side projects or open source libraries in this section. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et ligula in nunc bibendum fringilla a eu lectus.</p>
-                </div>//intro-->
-                <div class="item">
-                    <span class="project-title"><a href="#!" target="_blank">Redes e infraestructura:</a></span>
-                    <span class="project-tagline">
-                        <li>Instalacion</li> 
-                        <li>Cableado Estructurado</li>
-                        <li>configuracinde switch, router</li>
-                        <li>Configuracion Wifi</li>
-                        <li>Configuracion Red Lan</li>
-                    </span>
-                    
-                </div><!--//item-->
-                <div class="item">
-                    <span class="project-title"><a href="#!" target="_blank">Soporte Tecnico</a></span> - 
-                    <span class="project-tagline">
-                        <li>Mantenimiento Preventivo</li>
-                        <li>Mantenimiento Correctivo</li>
-                        <li>Instalación de software</li>
-                        <li>Configuración de Correo</li>
-                        <li>Reparación de Impresoras</li>
-                    </span>
-                <!--</div>//item
-                <div class="item">
-                    <span class="project-title"><a href="#!" target="_blank">DevCard</a></span> - 
-                    <span class="project-tagline">A portfolio website template designed for software developers.</span>
-                </div>//item
-                <div class="item">
-                    <span class="project-title"><a href="#!" target="_blank">Nova Pro</a></span> - 
-                    <span class="project-tagline">A responsive Bootstrap theme designed to help app developers promote their mobile apps</span>
-                </div>//item
-                <div class="item">
-                    <span class="project-title"><a href="#!" target="_blank">DevStudio</a></span> - 
-                    <span class="project-tagline">A responsive website template designed to help web developers/designers market their services. </span>
-                </div>//item-->
-            </section><!--//section-->
-            
-            <section class="skills-section section">
-                <h2 class="section-title"><span class="icon-holder"><i class="fas fa-rocket"></i></span>Habilidades &amp; Conocimientos</h2>
-                <div class="skillset"> 
-                    <h3 class="job-title">OFIMATICA</h3>
-                    <br>      
-                    <div class="item">
-                        <h3 class="level-title">Microsoft Office</h3>
-                        <div class="progress level-bar">
-						    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 99%" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100"></div>
-						</div>                               
-                    </div><!--//item-->
-                    
-                    <div class="item">
-                        <h3 class="level-title">Microsoft Project</h3>
-                        <div class="progress level-bar">
-						    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 98%" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100"></div>
-						</div>                              
-                    </div><!--//item-->
-                    
-                    <div class="item">
-                        <h3 class="level-title">Microsoft Visio</h3>
-                        <div class="progress level-bar">
-						    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 98%" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100"></div>
-						</div>                                 
-                    </div>
-                    <div class="item">
-                        <h3 class="level-title">Power BI</h3>
-                        <div class="progress level-bar">
-						    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 85%" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100"></div>
-						</div>                                 
-                    </div><!--//item-->
-                    
-                    <div class="item">
-                        <h3 class="level-title">Microsoft Office 365</h3>
-                        <div class="progress level-bar">
-							    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-						</div>                                
-                    </div><!--//item-->
-                    
-                    <div class="item">
-                        <h3 class="level-title">Microsoft Outlook</h3>
-                        <div class="progress level-bar">
-						    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-						</div>                                  
-                    </div><!--//item-->
-                    
-                    <div class="item">
-                        <h3 class="level-title">Abode Creative</h3>
-                        <div class="progress level-bar">
-						    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-						</div>                                 
-                    </div><!--//item-->
+            <article class="job">
+                <div class="job-header">
+                    <div><h3>Experiencia previa en soporte e infraestructura</h3><div class="company">Inetum / Sedapal · Corporación Sapia / Interbank · Manpower / Sonda · Cosapi Data / Claro · Clínica Maison de Santé</div></div>
+                    <div class="date">2015 - 2021</div>
                 </div>
-                <div class="skillset"> 
-                    <h3 class="job-title">SISTEMA OPERATIVO</h3>
-                    <br>      
-                    <div class="item">
-                        <h3 class="level-title">MS Windows XP, 7, 8, 10 ,11</h3>
-                        <div class="progress level-bar">
-						    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 95%" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100"></div>
-						</div>                               
-                    </div><!--//item-->
-                                      
-                    <div class="item">
-                        <h3 class="level-title">MS Windows Server 2016</h3>
-                        <div class="progress level-bar">
-						    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 65%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-						</div>                                 
-                    </div><!--//item-->
-                    <div class="item">
-                        <h3 class="level-title">Linux Ubuntu</h3>
-                        <div class="progress level-bar">
-						    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 20%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-						</div>                                 
-                    </div><!--//item-->
-                </div>
-                <div class="skillset"> 
-                    <h3 class="job-title">BASE DE DATOS</h3>
-                    <br>      
-                    <div class="item">
-                        <h3 class="level-title">MS SQL SERVER</h3>
-                        <div class="progress level-bar">
-						    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 75%" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100"></div>
-						</div>                               
-                    </div><!--//item-->
-                    
-                    <div class="item">
-                        <h3 class="level-title">MySQL</h3>
-                        <div class="progress level-bar">
-						    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 70%" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100"></div>
-						</div>                              
-                    </div><!--//item-->
-                    
-                    <div class="item">
-                        <h3 class="level-title">Oracle Database12C</h3>
-                        <div class="progress level-bar">
-						    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 60%" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100"></div>
-						</div>                                 
-                    </div><!--//item-->
-                </div>
-                <div class="skillset"> 
-                    <h3 class="job-title">BACKEND</h3>
-                    <br>      
-                    <div class="item">
-                        <h3 class="level-title">Visual Basic</h3>
-                        <div class="progress level-bar">
-						    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 56%" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100"></div>
-						</div>                               
-                    </div><!--//item-->
-                    
-                    <div class="item">
-                        <h3 class="level-title">ASP.Net</h3>
-                        <div class="progress level-bar">
-						    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 50%" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100"></div>
-						</div>                              
-                    </div><!--//item-->
-                    
-                    <div class="item">
-                        <h3 class="level-title">PHP</h3>
-                        <div class="progress level-bar">
-						    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 62%" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100"></div>
-						</div>                                 
-                    </div><!--//item-->
+                <p>Experiencia progresiva en soporte técnico Nivel II, hardware y software, redes, configuración de equipos, telefonía, mantenimiento, inventario, atención de usuarios, reemplazo de equipos, respaldos y documentación técnica.</p>
+            </article>
+        </section>
 
-                    <div class="item">
-                        <h3 class="level-title">Python</h3>
-                        <div class="progress level-bar">
-						    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 40%" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100"></div>
-						</div>                                 
-                    </div><!--//item-->
+        <section class="section">
+            <h2>Proyectos destacados</h2>
+            <div class="project-grid">
+                <div class="project">
+                    <h3>Plataforma de Reclutamiento REDRILSA</h3>
+                    <p>Plataforma corporativa para gestionar vacantes, aprobaciones, postulaciones, trazabilidad del proceso y preevaluación asistida por IA.</p>
+                    <div class="tags"><span class="tag">Laravel</span><span class="tag">React</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span><span class="tag">Redis</span><span class="tag">IA</span></div>
                 </div>
-                <div class="skillset"> 
-                    <h3 class="job-title">FRONTED</h3>
-                    <br>      
-                    <div class="item">
-                        <h3 class="level-title">Html 5</h3>
-                        <div class="progress level-bar">
-						    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 80%" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100"></div>
-						</div>                               
-                    </div><!--//item-->
-                    
-                    <div class="item">
-                        <h3 class="level-title">CSS</h3>
-                        <div class="progress level-bar">
-						    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 70%" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100"></div>
-						</div>                              
-                    </div><!--//item-->
-                    
-                    <div class="item">
-                        <h3 class="level-title">Java Script</h3>
-                        <div class="progress level-bar">
-						    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 30%" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100"></div>
-						</div>                                 
-                    </div><!--//item-->
-                </div>      
-            </section><!--//skills-section-->
-            
-        </div><!--//main-body-->
+                <div class="project">
+                    <h3>Ecapacita</h3>
+                    <p>Renovación de plataforma corporativa de capacitación con gestión de cursos, enrolamiento, evaluaciones, notas, certificados y trazabilidad.</p>
+                    <div class="tags"><span class="tag">Laravel</span><span class="tag">React</span><span class="tag">PostgreSQL</span><span class="tag">Automatización</span></div>
+                </div>
+                <div class="project">
+                    <h3>Portal corporativo y chatbot</h3>
+                    <p>Portal integrado con información corporativa, procesos, formularios, activos TI, comunicaciones internas y chatbot alimentado con conocimiento empresarial.</p>
+                    <div class="tags"><span class="tag">Web</span><span class="tag">IA</span><span class="tag">RAG / conocimiento</span><span class="tag">Integraciones</span></div>
+                </div>
+                <div class="project">
+                    <h3>ClosetFlow</h3>
+                    <p>Proyecto SaaS orientado a tiendas de moda con POS, inventario, variantes, caja, reportes, catálogo público e integraciones de negocio.</p>
+                    <div class="tags"><span class="tag">Laravel</span><span class="tag">React</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span><span class="tag">SaaS</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Habilidades y tecnologías</h2>
+            <div class="skills-grid">
+                <div class="skill-group"><h3>Infraestructura</h3><p>Windows Server, Active Directory, Microsoft 365, Microsoft Intune, VMware vSphere, File Server, PRTG.</p></div>
+                <div class="skill-group"><h3>Seguridad y redes</h3><p>Microsoft Defender for Endpoint, Fortinet, VPN, VLAN, switching, TCP/IP, administración remota y políticas de seguridad.</p></div>
+                <div class="skill-group"><h3>Backup y continuidad</h3><p>Veritas Backup Exec, conceptos Veeam, respaldos de servidores, bases de datos y SAP HANA.</p></div>
+                <div class="skill-group"><h3>Desarrollo web</h3><p>Laravel, PHP, React, JavaScript, HTML5, CSS, APIs REST, Docker, Git y GitHub.</p></div>
+                <div class="skill-group"><h3>IA y automatización</h3><p>Integración de LLM/IA en aplicaciones web, chatbots corporativos, automatización de flujos, notificaciones, procesamiento y clasificación de información.</p></div>
+                <div class="skill-group"><h3>Datos y BI</h3><p>Microsoft SQL Server, PostgreSQL, MySQL, Oracle Database, Power BI, consultas SQL e integración de datos.</p></div>
+                <div class="skill-group"><h3>Cloud</h3><p>Microsoft Azure Fundamentals, Oracle Cloud y conceptos de arquitectura híbrida.</p></div>
+                <div class="skill-group"><h3>Gestión y documentación</h3><p>Microsoft Project, Visio, documentación técnica, análisis de requerimientos, mejora de procesos y gestión de incidencias.</p></div>
+                <div class="skill-group"><h3>Soporte especializado</h3><p>Diagnóstico de hardware/software, despliegue de equipos, inventario, impresión, estaciones de trabajo y soporte Nivel II.</p></div>
+            </div>
+        </section>
+
+        <section class="section two-col">
+            <div>
+                <h2>Educación</h2>
+                <p><span class="item-title">Ingeniería de Sistemas</span><br>Universidad Peruana de las Américas<br><span class="muted">2017 - 2021</span></p>
+                <p><span class="item-title">Computación e Informática</span><br>ISTP Argentina<br><span class="muted">2011 - 2013</span></p>
+            </div>
+            <div>
+                <h2>Especialización y cursos</h2>
+                <p><span class="item-title">Especialización en Inteligencia de Negocios y Analítica de Datos</span><br>Cibertec · <span class="muted">Abr. 2024 - Oct. 2024</span></p>
+                <p><span class="item-title">Especialización en Business Intelligence</span><br>Netzun · <span class="muted">Jun. 2022</span></p>
+                <p><span class="item-title">Microsoft Azure Fundamentals</span><br>Entrenamiento Certero · <span class="muted">Mar. 2022</span></p>
+                <p><span class="item-title">Oracle Database 12c</span><br>TECSUP · <span class="muted">2017</span></p>
+            </div>
+        </section>
+
+        <section class="section two-col">
+            <div>
+                <h2>Idiomas</h2>
+                <p><strong>Español:</strong> nativo<br><strong>Inglés:</strong> técnico</p>
+            </div>
+            <div>
+                <h2>Información adicional</h2>
+                <p><strong>Licencia de conducir:</strong> A-IIa</p>
+            </div>
+        </section>
     </div>
- 
-    <footer class="footer">
-        <div class="text-center">
-            <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
-            <small class="copyright">Designed with <i class=""></i> by <a href="http://themes.3rdwavemedia.com" target="_blank">Edwin Soriano</a> for developers</small>
-        </div><!--//container-->
-    </footer><!--//footer-->
-        
+    <footer>Edwin Soriano Gonzales · Analista de Tecnologías de la Información · Lima, Perú</footer>
+</main>
 </body>
-</html> 
-
+</html>
